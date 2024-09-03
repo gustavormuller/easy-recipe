@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Logo from '../components/Logo.jsx';
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = React.useState('');
@@ -29,8 +30,9 @@ const Login = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.main}>
-      <Text style={styles.title}>Entre em sua conta</Text>
+      <Logo />
       <View style={styles.container}>
+        <Text style={styles.loginTitle}>Entre em sua conta</Text>
         <View>
           <TextInput
             style={styles.input}
@@ -64,14 +66,14 @@ const Login = ({ navigation }) => {
 const styles = StyleSheet.create({
   main: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     backgroundColor: '#fff1f1',
   },
-  title: {
-    fontSize: 24,
+  loginTitle: {
+    fontSize: 20,
     margin: 12,
     color: '#B83253',
-    fontWeight: '600',
+    fontWeight: '500',
     textAlign: 'center',
   },
   container: {

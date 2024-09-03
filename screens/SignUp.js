@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Logo from '../components/Logo.jsx';
 
 const SignUp = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -30,8 +31,9 @@ const SignUp = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.main}>
-      <Text style={styles.title}>Crie sua conta</Text>
+      <Logo />
       <View style={styles.container}>
+        <Text style={styles.title}>Crie sua conta</Text>
         <TextInput
           style={styles.input}
           onChangeText={setEmail}
@@ -72,19 +74,19 @@ const SignUp = ({ navigation }) => {
 const styles = StyleSheet.create({
   main: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     backgroundColor: '#fff1f1',
   },
   title: {
-    fontSize: 24,
+    fontSize: 20,
     margin: 10,
     color: '#B83253',
-    fontWeight: '600',
+    fontWeight: '500',
     textAlign: 'center',
   },
   container: {
     marginBottom: 0,
-    marginHorizontal: 12,    
+    marginHorizontal: 15,
   },
   input: {
     height: 40,
