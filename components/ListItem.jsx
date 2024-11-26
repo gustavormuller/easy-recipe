@@ -1,5 +1,4 @@
-import React from 'react';
-import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { Text, FlatList, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const ListItem = () => {
@@ -15,39 +14,32 @@ const ListItem = () => {
   ];
 
   const renderItem = ({ item }) => (
-    <View style={[styles.itemContainer, { backgroundColor: item.color }]}>
-      <TouchableOpacity
-        style={styles.touchable}
-        onPress={() => navigation.navigate('CuisineScreen', { cuisine: item.title })}
-      >
-        <Image source={{ uri: item.flag }} style={styles.flagImage} />
-        <Text style={styles.itemText}>{item.title}</Text>
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity
+      style={[styles.itemContainer, { backgroundColor: item.color }]}
+      onPress={() => navigation.navigate('CuisineScreen', { cuisine: item.title })}
+    >
+      <Image source={{ uri: item.flag }} style={styles.flagImage} />
+      <Text style={styles.itemText}>{item.title}</Text>
+    </TouchableOpacity>
   );
 
   return (
     <FlatList
       data={cuisines}
       renderItem={renderItem}
-      keyExtractor={item => item.id}
+      keyExtractor={(item) => item.id}
     />
   );
 };
 
 const styles = StyleSheet.create({
   itemContainer: {
-    padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
     borderRadius: 10,
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  touchable: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
+    padding: 20,
   },
   flagImage: {
     width: 40,
